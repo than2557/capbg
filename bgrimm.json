@@ -1,0 +1,87 @@
+{
+    "id": "f4354f48-52ed-44f2-a0d7-e3da4fcff245",
+    "version": "2.0",
+    "name": "palo",
+    "url": "https://172.23.31.1",
+    "tests": [{
+      "id": "de6ec9ed-5c47-448a-ab7d-59e3da0dccde",
+      "name": "Untitled",
+      "commands": [{
+        "id": "7a25c33c-a481-4e61-a8ef-b624a5bed0d6",
+        "comment": "",
+        "command": "open",
+        "target": "/php/login.php",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "cb38253b-f82f-43b6-8949-e9ba3e1714de",
+        "comment": "",
+        "command": "setWindowSize",
+        "target": "1980x1500",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "f918e664-d505-4274-925f-16a0a463cb81",
+        "comment": "",
+        "command": "sendKeys",
+        "target": "id=user",
+        "targets": [],
+        "value": "nocservice"
+      }, {
+        "id": "32958a61-900c-4839-b9b2-40849ddf5fc7",
+        "comment": "",
+        "command": "sendKeys",
+        "target": "id=passwd",
+        "targets": [],
+        "value": "NOCpwd2020+"
+      }, {
+        "id": "9ec5ba09-5203-4bf3-bbd8-eea9e482760f",
+        "comment": "",
+        "command": "click",
+        "target": "id=submit",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "f5da7104-41b0-47b5-bb05-6002e4175df6",
+        "comment": "",
+        "command": "click",
+        "target": "id=monitor",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "77562747-1e08-47e5-8c7c-9b95902fd890",
+        "comment": "",
+        "command": "click",
+        "target": "id=ext-gen173",
+        "targets": [
+          ["id=ext-gen173", "id"],
+          ["css=#ext-gen173", "css:finder"],
+          ["xpath=//img[@id='ext-gen173']", "xpath:attributes"],
+          ["xpath=//div[@id='ext-gen172']/img", "xpath:idRelative"],
+          ["xpath=//td[6]/div/img", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "c1e977b7-7428-4eef-94a7-2e82b2bf2996",
+        "comment": "",
+        "command": "click",
+        "target": "ext:qtip=ABP45",
+        "targets": [
+          ["css=.x-combo-selected", "css:finder"],
+          ["xpath=//div[@id='ext-gen379']/div[2]", "xpath:idRelative"],
+          ["xpath=//div[23]/div/div[2]", "xpath:position"]
+        ],
+        "value": ""
+      }]
+    }],
+    "suites": [{
+      "id": "c86560bb-b16f-4f2c-b251-6aadeb81b633",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": ["de6ec9ed-5c47-448a-ab7d-59e3da0dccde"]
+    }],
+    "urls": ["https://172.23.31.1/php/login.php", "https://172.23.31.1/"],
+    "plugins": []
+  }
