@@ -28,12 +28,9 @@ const fsp = require('fs').promises;
        
         html2canvas(findEl).then((canvas) => {
 
-            const link = document.createElement('a');
-            document.body.appendChild(link);
-            link.download = "cmp-image.jpg";
-            link.href = canvas.toDataURL();
-            link.click();
-            link.remove();
+            canvas.download = "cmp-image.jpg";
+            canvas.href = canvas.toDataURL();
+           
         });
         
 
