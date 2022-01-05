@@ -21,11 +21,10 @@ const fsp = require('fs').promises;
         await driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div/div/div/ul/div/li[4]/ul/li[3]/div/a/span")).click();
         // await driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr/td[6]/div/img")).click();
 
-        await driver.get("https://172.23.31.1/?#monitor::ABP12::monitor/app-scope/threat-monitor");
-        const findEl =  document.getElementById('ext-gen190');
-        // await driver.findElement(By.xpath("/html/body/div[15]/div/div[5]")).click();   .
+        await driver.get("https://172.23.31.1/?#monitor::ABP45::monitor/app-scope/threat-monitor");
 
-       
+        const findEl = driver.findElement(By.id("chart_container"));
+        // await driver.findElement(By.xpath("/html/body/div[15]/div/div[5]")).click();   .
         html2canvas(findEl).then((canvas) => {
 
             canvas.download = "cmp-image.jpg";
