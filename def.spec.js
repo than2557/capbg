@@ -17,7 +17,7 @@ const { Builder, By, Key, until } = require('selenium-webdriver');
   await driver.findElement(By.id("monitor")).click();
   await driver.findElement(By.css(".x-tree-selected > .x-tree-node-anchor > span")).click();
   await driver.findElement(By.id("ext-gen173")).click();
-  await driver.findElement(By.xpath("//*[@id=\"ext-gen383\"]/div[2]")).click();
+  await driver.findElement(By.xpath("/html/body/div[17]/div/div[2]")).click();
  } finally {
         // await driver.quit();
     }

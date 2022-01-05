@@ -17,17 +17,10 @@ const fsp = require('fs').promises;
         await driver.wait(until.elementLocated(By.id("monitor_img")), 70000);
         await driver.findElement(By.xpath("/html/body/div[1]/div/div/table/tbody/tr[1]/td/table/tbody/tr/td[2]/table/tbody/tr/td[4]")).click();
         await driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div/div/div/ul/div/li[4]/ul/li[3]/div/a/span")).click();
-        await driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr/td[6]/div/img")).click();
-
-        const  se = new Select(driver.findElement(By.xpath("/html/body/div[3]/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr/td[6]/div")));
-			
-     
-        se.selectByVisibleText("ABP12").click();
-        await driver.findElement(document.querySelector("#ext-gen434 > div.x-combo-list-item.x-combo-selected")).click();
-        // await driver.findElement(By.xpath("/html/body/div[15]/div/div[5]")).click();   
-     
-   
-
+        await driver.findElement(document.querySelector("#ext-gen435 > div:nth-child(2)")).click();   
+        // await driver.findElement(By.id("ext-gen173")).click();
+       
+        
     } finally {
         // await driver.quit();
     }
