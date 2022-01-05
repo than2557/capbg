@@ -1,0 +1,6 @@
+  html2canvas(document.querySelector("#chart_container")).then(canvas => {
+            const link = document.createElement('#chart_container');
+            link.download = 'download.png';
+            link.href = canvas.toDataURL('image/jpeg', 0.1);
+            // canvas.toDataURL('image/jpeg', 0.1);
+        });
