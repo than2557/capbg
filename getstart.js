@@ -5,8 +5,8 @@ require('html2canvas');
 
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas');
-
-const { jquery } = require('jquery');
+// import html2canvas from 'html2canvas';
+// const { jquery } = require('jquery');
 
 
 (async function test() {
@@ -45,14 +45,14 @@ const { jquery } = require('jquery');
 
         
             // const findEl = document.getElementById('chart_container');
-            html2canvas(chart_container).then((canvas) => {
-                const link = document.createElement('a');
-                document.body.appendChild(link);
-                link.download = "cmp-image.jpg";
-                link.href = canvas.toDataURL();
-                link.click();
-                link.remove();
-            });
+            // html2canvas(chart_container).then((canvas) => {
+            //     const link = document.createElement('a');
+            //     document.body.appendChild(link);
+            //     link.download = "cmp-image.jpg";
+            //     link.href = canvas.toDataURL();
+            //     link.click();
+            //     link.remove();
+            // });
         
      
     } finally {
