@@ -1,1 +1,2 @@
-
+doucment.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");
+doucment.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");

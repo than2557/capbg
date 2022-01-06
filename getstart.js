@@ -2,10 +2,10 @@
 
 require('chromedriver');
 require('html2canvas');
-document.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");
+
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL } = require('html2canvas');
-
+const {document } = require('javascript');
 let html ='';
 
 
@@ -13,7 +13,6 @@ let html ='';
     let driver = await new Builder().forBrowser('chrome').build()
     try {
 
-     
 
         await driver.get("https://172.23.31.1/php/login.php");
         await driver.manage().window().maximize();
@@ -36,6 +35,7 @@ let html ='';
         // document.getElementsByTagName('head')[0].appendChild(script);
 
 
+     await driver.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");
      html += ' <div class="button"><button id="capture" type="button" onclick="saveAsImage()">Capture</button></div>';
      $('#monitor_img').append(html);
      var cap = await driver.findElement(By.id('capture'));
