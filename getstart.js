@@ -4,9 +4,9 @@ require('chromedriver');
 require('html2canvas');
 
 const { Builder, By, Key, until } = require('selenium-webdriver');
-const { createCanvas, loadImage,toDataURL } = require('html2canvas');
-const {document } = require('javascript');
-let html ='';
+const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas');
+
+const { jquery } = require('jquery');
 
 
 (async function test() {
@@ -28,30 +28,32 @@ let html ='';
         await driver.get("https://172.23.31.1/?#monitor::ABP12::monitor/app-scope/threat-monitor");
 
       
-
+          var chart_container  = await (await driver.findElements(By.id("chart_container"))).values();
+          
+          console.log(chart_container);
         // var script = document.createElement('script');
         // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
         // script.type = 'text/javascript';
         // document.getElementsByTagName('head')[0].appendChild(script);
 
 
-     await driver.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");
-     html += ' <div class="button"><button id="capture" type="button" onclick="saveAsImage()">Capture</button></div>';
-     $('#monitor_img').append(html);
-     var cap = await driver.findElement(By.id('capture'));
-        cap.click();
+    //  await driver.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");
+    //  html += ' <div class="button"><button id="capture" type="button" onclick="saveAsImage()">Capture</button></div>';
+    //  $('#monitor_img').append(html);
+    //  var cap = await driver.findElement(By.id('capture'));
+    //     cap.click();
 
-        function saveAsImage() {
-            const findEl = document.getElementById('chart_container')
-            html2canvas(findEl).then((canvas) => {
-                const link = document.createElement('a')
-                document.body.appendChild(link)
-                link.download = "cmp-image.jpg"
-                link.href = canvas.toDataURL()
-                link.click()
-                link.remove()
-            })
-        }
+        
+            // const findEl = document.getElementById('chart_container');
+            html2canvas(chart_container).then((canvas) => {
+                const link = document.createElement('a');
+                document.body.appendChild(link);
+                link.download = "cmp-image.jpg";
+                link.href = canvas.toDataURL();
+                link.click();
+                link.remove();
+            });
+        
      
     } finally {
         // await driver.quit();
