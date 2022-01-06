@@ -1,12 +1,16 @@
 
 require('chromedriver');
 require('html2canvas');
+
+
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL } = require('html2canvas');
 
-const { Builder, By, Key, until } = require('selenium-webdriver');
-const html2canvas = require('html2canvas');
-const fsp = require('fs').promises;
+var script = document.createElement("SCRIPT");
+script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
+script.type = 'text/javascript';
+
+let html ='';
 (async function test() {
     let driver = await new Builder().forBrowser('chrome').build()
     try {
@@ -25,15 +29,25 @@ const fsp = require('fs').promises;
 
         await driver.get("https://172.23.31.1/?#monitor::ABP12::monitor/app-scope/threat-monitor");
 
-        const findEl = driver.findElement(By.id("chart_container"));
-        // await driver.findElement(By.xpath("/html/body/div[15]/div/div[5]")).click();   .
-        html2canvas(findEl).then((canvas) => {
+     html += ' <div class="button"><button id="capture" type="button" onclick="saveAsImage()">Capture</button></div>';
+     $('#monitor_img').append(html);
+     var cap = document.getElementById('capture');
+  
+    cap.click();
 
-            canvas.download = "cmp-image.jpg";
-            canvas.href = canvas.toDataURL();
-           
-        });
-        
+        function saveAsImage() {
+            const findEl = document.getElementById('chart_container')
+            html2canvas(findEl).then((canvas) => {
+                const link = document.createElement('a')
+                document.body.appendChild(link)
+                link.download = "cmp-image.jpg"
+                link.href = canvas.toDataURL()
+                link.click()
+                link.remove()
+            })
+        }
+        // const findEl = driver.findElement(By.id(newLocal));
+        // html2canvas(findEl).then((canvas) => {
 
         //     const link = document.createElement('a');
         //     document.body.appendChild(link);
