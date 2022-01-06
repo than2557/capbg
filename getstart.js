@@ -1,19 +1,18 @@
 
+
 require('chromedriver');
 require('html2canvas');
-
-
+document.writeln("<script type='text/javascript' src='node_modules/jquery/dist/jquery.min.js'></script>");
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL } = require('html2canvas');
 
-var script = document.createElement("SCRIPT");
-script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
-script.type = 'text/javascript';
-
 let html ='';
+
+
 (async function test() {
     let driver = await new Builder().forBrowser('chrome').build()
     try {
+
      
 
         await driver.get("https://172.23.31.1/php/login.php");
@@ -29,11 +28,18 @@ let html ='';
 
         await driver.get("https://172.23.31.1/?#monitor::ABP12::monitor/app-scope/threat-monitor");
 
+      
+
+        // var script = document.createElement('script');
+        // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+        // script.type = 'text/javascript';
+        // document.getElementsByTagName('head')[0].appendChild(script);
+
+
      html += ' <div class="button"><button id="capture" type="button" onclick="saveAsImage()">Capture</button></div>';
      $('#monitor_img').append(html);
-     var cap = document.getElementById('capture');
-  
-    cap.click();
+     var cap = await driver.findElement(By.id('capture'));
+        cap.click();
 
         function saveAsImage() {
             const findEl = document.getElementById('chart_container')
@@ -46,17 +52,7 @@ let html ='';
                 link.remove()
             })
         }
-        // const findEl = driver.findElement(By.id(newLocal));
-        // html2canvas(findEl).then((canvas) => {
-
-        //     const link = document.createElement('a');
-        //     document.body.appendChild(link);
-        //     link.download = "cmp-image.jpg"
-        //     link.href = canvas.toDataURL();
-        //     link.click();
-        //     link.remove();
-        // });
-
+     
     } finally {
         // await driver.quit();
     }
