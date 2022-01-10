@@ -26,17 +26,22 @@ const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas')
         await driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div/div/div/ul/div/li[4]/ul/li[3]/div/a/span")).click();
 
         await driver.get("https://172.23.31.1/?#monitor::ABP12::monitor/app-scope/threat-monitor");
-        await driver.wait(until.elementsLocated(By.id("ext-gen218")),70000);
-        await driver.findElement(By.id("ext-gen218")).click();
-
-        
         // await driver.wait(until.elementsLocated(By.id("ext-gen218")),70000);
         // await driver.findElement(By.id("ext-gen218")).click();
-
+        let data_blind = await driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/g[6]/rect"));
+        await driver.wait(until.elementsLocated(data_blind),70000); 
+        // await driver.wait(until.elementsLocated(By.id("ext-gen218")),70000);
+        // await driver.findElement(By.id("ext-gen218")).click();
+        
+        await  driver.takeScreenshot().then(
+            function(image) {
+                require('fs').writeFileSync('captured_image_3.png', image, 'base64');
+            }
+        );
       
-         
+        // var chart = await driver.findElement(By.id("highcharts-6"));
         // await driver.wait(until.elementLocated(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr/td[13]/table/tbody/tr[2]/td[2]/em/button")), 70000);
-
+    
 
     } finally {
         // await driver.quit();
