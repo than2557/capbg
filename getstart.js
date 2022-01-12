@@ -5,6 +5,8 @@ require('html2canvas');
 
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas');
+const { jquery,$} = require('jquery');
+// const { createCanvas } = require('canvas');
 // import html2canvas from 'html2canvas';
 // const { jquery } = require('jquery');
 
@@ -17,7 +19,7 @@ const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas')
         await driver.get("https://172.23.31.1/php/login.php");
         await driver.manage().window().maximize();
         await driver.findElement(By.id("details-button")).click();
-        await driver.findElement(By.id("proceed-link")).click();
+        await driver.findElement(By.id("proceed-link")).click();    
         await driver.findElement(By.id("user")).sendKeys("nocservice");
         await driver.findElement(By.id("passwd")).sendKeys("NOCpwd2020+");
         await driver.findElement(By.id("submit")).click();
@@ -36,17 +38,30 @@ const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas')
       
         await driver.wait(until.elementsLocated(By.id("ext-gen218")),70000);
         // await driver.wait(until.elementLocated(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/g[6]/g/g/g[1]/text/tspan")),70000);
-       await driver.wait(until.elementLocated(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/g[6]/g/g/g[1]/text/tspan")),70000);
+       await driver.wait(until.elementLocated(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/g[6]/g/g/g[1]/text/tspan")),50000);
        
 
     } finally {
         
-        await  driver.takeScreenshot().then(
+    //  var chart_container = await driver.findElement(By.id("chart_container"));
+    //  var c = await driver.findElement(By.id("chart_container"));
+    // var t = c.getContext('2d');
+
+    //  console.log(chart_container);
+    const findEl = await driver.findElement(By.id("chart_container"));
+        await  driver.takeScreenshot(findEl).then(
             function(image) {
-                require('fs').writeFileSync('captured_image_3.png', image, 'base64');
+                require('fs').writeFileSync('chart.png', image, 'base64');
             }
         );
-     
+    //    await html2canvas(findEl).then((canvas) => {
+    //         const link = document.createElement('a')
+    //         document.body.appendChild(link)
+    //         link.download = "cmp-image.jpg"
+    //         link.href = canvas.toDataURL()
+    //         link.click()
+    //         link.remove()
+    //     });
     }   
 })
 

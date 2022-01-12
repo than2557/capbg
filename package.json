@@ -9,6 +9,7 @@
   "author": "amit.bhoraniya",
   "license": "MIT",
   "dependencies": {
+    "canvas": "^2.8.0",
     "chromedriver": "^96.0.0",
     "dom-to-image": "^2.6.0",
     "dynamic": "^4.2.2",
