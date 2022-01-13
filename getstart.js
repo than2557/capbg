@@ -1,11 +1,15 @@
 
 
+
 require('chromedriver');
 require('html2canvas');
+
 
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas');
 const { jquery,$} = require('jquery');
+const {screen}  = require('screen.js');
+
 // const { createCanvas } = require('canvas');
 // import html2canvas from 'html2canvas';
 // const { jquery } = require('jquery');
@@ -44,30 +48,19 @@ const { jquery,$} = require('jquery');
 
     } finally {
         
-    //  var chart_container = await driver.findElement(By.id("chart_container"));
-    //  var c = await driver.findElement(By.id("chart_container"));
-    // var t = c.getContext('2d');
-
-    //  console.log(chart_container);
-    const findEl = await driver.findElement(By.id("chart_container"));
-        await  driver.takeScreenshot(findEl).then(
-            function(image) {
-                require('fs').writeFileSync('chart.png', image, 'base64');
-            }
-        );
-    //    await html2canvas(findEl).then((canvas) => {
-    //         const link = document.createElement('a')
-    //         document.body.appendChild(link)
-    //         link.download = "cmp-image.jpg"
-    //         link.href = canvas.toDataURL()
-    //         link.click()
-    //         link.remove()
-    //     });
+        screen.screenchart();
+    // const findEl = await driver.findElement(By.id("chart_container"));
+    //     await  driver.takeScreenshot(findEl).then(
+    //         function(image) {
+    //             require('fs').writeFileSync('chart.png', image, 'base64');
+    //         }
+    //     );
+   
+  
     }   
 })
 
 ();
-
 
 
         
