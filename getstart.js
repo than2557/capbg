@@ -48,13 +48,13 @@ const {screen}  = require('screen.js');
 
     } finally {
         
-        screen.screenchart();
-    // const findEl = await driver.findElement(By.id("chart_container"));
-    //     await  driver.takeScreenshot(findEl).then(
-    //         function(image) {
-    //             require('fs').writeFileSync('chart.png', image, 'base64');
-    //         }
-    //     );
+        // screen.screenchart();
+    const findEl = await driver.findElement(By.id("chart_container"));
+        await  driver.takeScreenshot(findEl).then(
+            function(image) {
+                require('fs').writeFileSync('chart.png', image, 'base64');
+            }
+        );
    
   
     }   
