@@ -48,7 +48,7 @@ const {screen}  = require('screen.js');
 
     } finally {
         
-        // screen.screenchart();
+        // screen.screenchart(); fix screen
     const findEl = await driver.findElement(By.id("chart_container"));
         await  driver.takeScreenshot(findEl).then(
             function(image) {
@@ -56,7 +56,7 @@ const {screen}  = require('screen.js');
             }
         );
    
-  
+
     }   
 })
 
