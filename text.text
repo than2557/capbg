@@ -4,3 +4,23 @@
             link.href = canvas.toDataURL('image/jpeg', 0.1);
             // canvas.toDataURL('image/jpeg', 0.1);
         });
+
+        
+
+               // var _height = 0, _width = 0, _left = 0, _top = 0;
+
+    //  driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/rect")).react().then(location =>{
+
+    //     _left = location.x;
+    //     _top = location.y;
+    //  });
+//     driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/rect")).rect().then(size =>{
+//                 _width = size.width;
+//                 _height = size.height;
+//    });
+
+    // consloe.log(_left);
+    // consloe.log(_top);
+    // consloe.log(_width);
+    // consloe.log(_height);
+    //         await driver.sleep(5000);
