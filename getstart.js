@@ -8,7 +8,8 @@ require('html2canvas');
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { createCanvas, loadImage,toDataURL,html2canvas } = require('html2canvas');
 const { jquery,$} = require('jquery');
-const {screen}  = require('screen.js');
+// const {screen}  = require('screen.js');
+
 
 // const { createCanvas } = require('canvas');
 // import html2canvas from 'html2canvas';
@@ -41,9 +42,7 @@ const {screen}  = require('screen.js');
        
       
         await driver.wait(until.elementsLocated(By.id("ext-gen218")),70000);
-        await driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[3]/div/table/tbody/tr/td[1]/table/tbody/tr/td[5]/table/tbody/tr[2]/td[2]/em/button")).click();
-        
-       await driver.wait(until.elementLocated(By.xpath("/html/body/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div/svg/g[6]/g/g/g[1]/text/tspan")),50000);
+        await driver.sleep(5000);
      
 
     } finally {
